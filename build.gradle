@@ -1,0 +1,28 @@
+buildscript {
+    repositories {
+        maven { url 'http://dl.bintray.com/jetbrains/intellij-plugin-service' }
+    }
+}
+
+plugins {
+    id "org.jetbrains.intellij" version "0.1.10"
+}
+
+allprojects {
+    apply plugin: 'java'
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    apply plugin: 'org.jetbrains.intellij'
+    intellij {
+        version ideaVersion
+        pluginName 'elasticsearch-idea-plugin'
+        plugins 'IntelliLang'
+        downloadSources Boolean.valueOf(downloadIdeaSources)
+    }
+
+    apply plugin: 'idea'
+}
+
+group 'vlgo.intellij.plugin.elasticsearch'
+version '1.0-SNAPSHOT'
