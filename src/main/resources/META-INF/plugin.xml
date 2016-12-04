@@ -26,8 +26,29 @@
     <project-components>
     </project-components>
 
-    <actions/>
-    <extensions defaultExtensionNs="com.intellij"/>
+    <actions>
+        <group id="ElasticSearchServersViewToolbar" text="Remote Servers">
+            <action id="ElasticSearchServers.AddServer" class="vlgo.intellij.plugin.elasticsearch.view.action.AddServerAction"/>
+            <action id="ElasticSearchServers.RemoveServer" class="vlgo.intellij.plugin.elasticsearch.view.action.RemoveServerAction"/>
+            <!--<action id="RemoteServers.DisconnectServer" class="com.intellij.remoteServer.impl.runtime.ui.tree.actions.RemoteServerDisconnectAction"/>-->
+            <!--<action id="RemoteServers.EditServerConfig" class="com.intellij.remoteServer.impl.runtime.ui.tree.actions.RemoteServerConfigAction"/>-->
+            <!--<action id="RemoteServers.ChooseServerDeployment" class="com.intellij.remoteServer.impl.runtime.ui.tree.actions.ChooseDeploymentAction"/>-->
+            <!--<action id="RemoteServers.ChooseServerDeploymentWithDebug" class="com.intellij.remoteServer.impl.runtime.ui.tree.actions.ChooseDeploymentWithDebugAction"/>-->
+<!---->
+            <!--<action id="Servers.Deploy" class="com.intellij.remoteServer.impl.runtime.ui.tree.actions.DeployAction"/>-->
+            <!--<action id="Servers.Undeploy" class="com.intellij.remoteServer.impl.runtime.ui.tree.actions.UndeployAction"/>-->
+            <!--<action id="Servers.DeployWithDebug" class="com.intellij.remoteServer.impl.runtime.ui.tree.actions.DeployWithDebugAction"/>-->
+            <!--<action id="RemoteServers.EditDeploymentConfig" class="com.intellij.remoteServer.impl.runtime.ui.tree.actions.DeploymentConfigAction"/>-->
+        </group>
+    </actions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="Elasticsearch" icon="/icons/elasticsearch-16x16.png" anchor="right"
+                    factoryClass="vlgo.intellij.plugin.elasticsearch.view.ElasticSearchToolWindowFactory"/>
+        <projectService serviceInterface="vlgo.intellij.plugin.elasticsearch.ElasticsearchServersSetting"
+                        serviceImplementation="vlgo.intellij.plugin.elasticsearch.ElasticsearchServersSetting"/>
+    </extensions>
+
 
 
 </idea-plugin>
